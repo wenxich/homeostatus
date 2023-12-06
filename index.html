@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Homeostatus: The Boundary Building Game</title>
+    <link rel="stylesheet" type="text/css" href="index.css">
+    <link href="https://unpkg.com/nes.css@latest/css/nes.min.css" rel="stylesheet" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+</head>
+<body>
+
+<div id="content">
+
+<div class="opponent">
+  <div id="o-img" class="nes-container is-rounded"></div>
+  <div id="o-info" class="nes-balloon from-left">
+      <div>name: <span id="o-name"></span></div>
+      <div>status: <span id="o-relation"></span></div>
+  </div>
+</div>
+
+<div class="menu nes-container is-dark with-title">
+    <div class="title"><span class="nes-text is-primary">engage</span> or <span class="nes-text is-primary">avoid?</span></div>
+    <div id="m-options">
+        <label>
+            <input id="cam-checkbox" type="checkbox" class="nes-checkbox is-dark" onclick="startCamHandler()" />
+            <span>Enable camera</span>
+        </label>
+        <div id="webcam-container"></div>
+        <div id="label-container"></div>
+        <button type="button" id="submit-btn" class="nes-btn is-primary" onclick="submitHandler()">Submit response</button>
+
+        <div id="valid-response">
+            Continue with this response?
+            <div style="padding: 1rem 0;">
+                <label>
+                    <input type="radio" class="nes-radio is-dark" name="answer-dark" checked onclick="handleValidYes()" />
+                    <span>Yes</span>
+                </label>
+
+                <label>
+                    <input type="radio" class="nes-radio is-dark" name="answer-dark" onclick="handleValidNo()" />
+                    <span>No</span>
+                </label>
+            </div>
+        </div>
+        <div id="invalid-response" class="nes-text is-warning">
+            I'm sorry, you have to choose one.<br>
+            Try recording again...
+        </div>
+        <div id="no-more-avoids" class="nes-text is-warning">
+            I'm sorry, you have no more avoids.<br>
+            Try recording again...
+        </div>
+    </div>
+</div>
+<div id="final-screen" class="menu nes-container is-dark with-title">
+    <div class="title">GAME OVER</div>
+    You've gotten through with <span id="energyTotal" class="nes-text is-primary"></span> energy and <span id="avoidancesTotal" class="nes-text is-primary"></span> avoidance(s) left.
+    <br>Good job!
+</div>
+
+<div class="player">
+  <div id="u-energy-ctr" class="nes-container is-rounded">total energy:
+      <p>
+          <progress id="u-energy" class="nes-progress is-warning"></progress>
+      </p>
+  </div>
+  <div id="u-img" class="nes-container is-rounded"></div>
+  <div id="u-avoidance-ctr" class="nes-container is-rounded">avoidances left:
+      <p id="avoidance-list">
+      </p>
+  </div>
+</div>
+
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@latest/dist/tf.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@teachablemachine/image@latest/dist/teachablemachine-image.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+<script src="setup.js"></script>
+<script src="camera.js"></script>
+<script src="panel.js"></script>
+</body>
+</html>
