@@ -2,6 +2,12 @@
 body {
     margin: 0;
     padding: 0;
+    background-image: url("bg.png");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 100vw;
+    height: 100vh;
 }
 
 #content {
@@ -27,6 +33,7 @@ body {
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
+    background-color: white;
 }
 
 #o-info {
@@ -60,6 +67,15 @@ body {
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
+    background-color: white;
+}
+
+#u-energy-ctr {
+    background-color: white;
+}
+
+#u-avoidance-ctr {
+    background-color: white;
 }
 
 /** RESPONSES **/
